@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <litepal>
-    <dbname value ="coo_weather"/>
+    <dbname value ="cool_weather"/>
     <version value="1"/>
     <list>
-        <mapping class="com.EricHym.android.db.Province"/>
-        <mapping class="com.EricHym.android.db.City"/>
-        <mapping class="com.EricHym.android.db.County"/>
+        <mapping class="com.erichym.coolweather.db.Province"/>
+        <mapping class="com.erichym.coolweather.db.City"/>
+        <mapping class="com.erichym.coolweather.db.County"/>
     </list>
 </litepal>
