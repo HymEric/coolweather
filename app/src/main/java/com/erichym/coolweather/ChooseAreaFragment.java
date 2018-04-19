@@ -1,7 +1,9 @@
 package com.erichym.coolweather;
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,6 +97,12 @@ public class ChooseAreaFragment extends Fragment{
                 }else if(currentLevel==LEVEL_CITY){
                     selectedCity=cityList.get(position);
                     queryCounties();
+                }else if(currentLevel==LEVEL_COUNTY){
+                    String weatherId=countyList.get(position).getWeatherId();
+                    Intent intent=new Intent(getActivity(),WeatherActivity.class);
+                    intent.putExtra("weather_id",weatherId);
+                    startActivity(intent);
+                    getActivity().finish();
                 }
             }
         });
@@ -243,4 +251,17 @@ public class ChooseAreaFragment extends Fragment{
             progressDialog.dismiss();
         }
     }
+
+//    public void addFragment(Fragment fragment, String tag) {
+//        // 开启事务
+//        FragmentTransaction beginTransaction = getFragmentManager().beginTransaction();
+//        // 执行事务,添加Fragment
+//        beginTransaction.add(R.id.choose_area_fragment, fragment, tag);
+//        // 添加到回退栈,并定义标记
+//        beginTransaction.addToBackStack(tag);
+//        // 提交事务
+//        beginTransaction.commit();
+//
+//    }
+
 }
