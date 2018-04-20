@@ -1,5 +1,6 @@
 package com.erichym.coolweather;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Build;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.erichym.coolweather.gson.Forecast;
 import com.erichym.coolweather.gson.Weather;
+import com.erichym.coolweather.service.AutoUpdateServices;
 import com.erichym.coolweather.util.HttpUtil;
 import com.erichym.coolweather.util.Utility;
 
@@ -194,6 +196,8 @@ public class WeatherActivity extends Activity {
         carWashText.setText(carWash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        Intent intent = new Intent(this, AutoUpdateServices.class);
+        startService(intent);
     }
 
     /***
